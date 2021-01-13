@@ -1,5 +1,6 @@
 import fetch from "node-fetch";
 import unzipper from "unzipper";
+import { resolve as resolvePath } from "path";
 
 const webkitJsonUrl = "https://build.webkit.org/json/";
 
@@ -56,4 +57,4 @@ const assetWin64 = latestAssets.find(asset => asset.name.includes("Win64"));
 
 const assetBinary = await fetch(assetWin64.browser_download_url);
 
-assetBinary.body.pipe(unzipper.Extract({ path: revision }));
+assetBinary.body.pipe(unzipper.Extract({ path: `downloads/${revision}` }));
