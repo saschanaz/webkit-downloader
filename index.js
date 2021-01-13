@@ -35,7 +35,7 @@ async function propertiesAsMap(properties) {
 
 const builders = await fetchAsJsonFromWebKitOrg("builders/WinCairo-64-bit-WKL-Release-Build");
 
-const latestBuild = builders.cachedBuilds[builders.cachedBuilds.length - 1];
+const latestBuild = builders.cachedBuilds[builders.cachedBuilds.length - 1 - builders.pendingBuilds];
 
 const build = await fetchAsJsonFromWebKitOrg(`builders/WinCairo-64-bit-WKL-Release-Build/builds/${latestBuild}`);
 
